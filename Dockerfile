@@ -17,10 +17,11 @@ RUN apt-get update && \
       nmon \
       socat \
       telnet \
+      tree \
       wget && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 
-RUN adduser --disabled-password --system toolkit
+RUN adduser --disabled-password --system --uid 1001 toolkit
 WORKDIR /home/toolkit
-USER toolkit
+USER 1001
